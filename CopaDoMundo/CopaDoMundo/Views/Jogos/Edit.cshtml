@@ -1,0 +1,62 @@
+﻿@model CopaDoMundo.Models.Jogos
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h4>Jogo</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="well">
+
+        <table class="table">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.JogoId)
+            @Html.HiddenFor(model => model.SelecaoId1)
+            @Html.HiddenFor(model => model.SelecaoId2)
+            @Html.HiddenFor(model => model.FaseId)
+
+            <tr>
+                <th class="col-md-3">
+                    @Html.DisplayFor(Model => Model.Seleco.Nome)
+                </th>
+                <th class="col-md-2">
+                    @Html.TextBoxFor(model => model.Gol1, new { @class = "form-control", @style = "width:60px; text-align: center; height: 26px;", @maxlength = "2" })
+                    @Html.ValidationMessageFor(model => model.Gol1, "", new { @class = "text-danger" })
+                </th>
+
+                <th class="col-md-2">
+                    @Html.Label("X")
+                </th>
+
+                <th class="col-md-2">
+                    @Html.TextBoxFor(model => model.Gol2, new { @class = "form-control", @style = "width:60px; text-align: center; height: 26px;", @maxlength = "2" })
+                    @Html.ValidationMessageFor(model => model.Gol2, "", new { @class = "text-danger" })
+                <th />
+                <th class="col-md-3">
+                    @Html.DisplayFor(Model => Model.Seleco1.Nome)
+                </th>
+
+                <th class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-info" />
+                </th>
+
+            </tr>
+
+        </table>
+
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Oitavas")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CopaDoMundoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Fases">
+    <Key>
+      <PropertyRef Name="FaseId" />
+    </Key>
+    <Property Name="FaseId" Type="int" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jogos">
+    <Key>
+      <PropertyRef Name="JogoId" />
+    </Key>
+    <Property Name="JogoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SelecaoId1" Type="int" Nullable="false" />
+    <Property Name="SelecaoId2" Type="int" Nullable="false" />
+    <Property Name="Gol1" Type="int" Nullable="false" />
+    <Property Name="Gol2" Type="int" Nullable="false" />
+    <Property Name="FaseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Selecoes">
+    <Key>
+      <PropertyRef Name="IdSelecao" />
+    </Key>
+    <Property Name="IdSelecao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="QtdTitulos" Type="int" />
+    <Property Name="Bandeira" Type="varbinary(max)" />
+    <Property Name="Descricao" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Jogos_Fases">
+    <End Role="Fases" Type="Self.Fases" Multiplicity="1" />
+    <End Role="Jogos" Type="Self.Jogos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fases">
+        <PropertyRef Name="FaseId" />
+      </Principal>
+      <Dependent Role="Jogos">
+        <PropertyRef Name="FaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogos_Selecoes1">
+    <End Role="Selecoes" Type="Self.Selecoes" Multiplicity="1" />
+    <End Role="Jogos" Type="Self.Jogos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Selecoes">
+        <PropertyRef Name="IdSelecao" />
+      </Principal>
+      <Dependent Role="Jogos">
+        <PropertyRef Name="SelecaoId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jogos_Selecoes2">
+    <End Role="Selecoes" Type="Self.Selecoes" Multiplicity="1" />
+    <End Role="Jogos" Type="Self.Jogos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Selecoes">
+        <PropertyRef Name="IdSelecao" />
+      </Principal>
+      <Dependent Role="Jogos">
+        <PropertyRef Name="SelecaoId2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CopaDoMundoModelStoreContainer">
+    <EntitySet Name="Fases" EntityType="Self.Fases" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jogos" EntityType="Self.Jogos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Selecoes" EntityType="Self.Selecoes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Jogos_Fases" Association="Self.FK_Jogos_Fases">
+      <End Role="Fases" EntitySet="Fases" />
+      <End Role="Jogos" EntitySet="Jogos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogos_Selecoes1" Association="Self.FK_Jogos_Selecoes1">
+      <End Role="Selecoes" EntitySet="Selecoes" />
+      <End Role="Jogos" EntitySet="Jogos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jogos_Selecoes2" Association="Self.FK_Jogos_Selecoes2">
+      <End Role="Selecoes" EntitySet="Selecoes" />
+      <End Role="Jogos" EntitySet="Jogos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

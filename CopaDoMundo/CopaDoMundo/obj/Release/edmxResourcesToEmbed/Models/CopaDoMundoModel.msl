@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CopaDoMundoModelStoreContainer" CdmEntityContainer="CopaDoMundoEntities">
+    <EntitySetMapping Name="Fases1">
+      <EntityTypeMapping TypeName="CopaDoMundoModel.Fases">
+        <MappingFragment StoreEntitySet="Fases">
+          <ScalarProperty Name="FaseId" ColumnName="FaseId" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jogos">
+      <EntityTypeMapping TypeName="CopaDoMundoModel.Jogos">
+        <MappingFragment StoreEntitySet="Jogos">
+          <ScalarProperty Name="JogoId" ColumnName="JogoId" />
+          <ScalarProperty Name="SelecaoId1" ColumnName="SelecaoId1" />
+          <ScalarProperty Name="SelecaoId2" ColumnName="SelecaoId2" />
+          <ScalarProperty Name="Gol1" ColumnName="Gol1" />
+          <ScalarProperty Name="Gol2" ColumnName="Gol2" />
+          <ScalarProperty Name="FaseId" ColumnName="FaseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Selecoes1">
+      <EntityTypeMapping TypeName="CopaDoMundoModel.Selecoes">
+        <MappingFragment StoreEntitySet="Selecoes">
+          <ScalarProperty Name="IdSelecao" ColumnName="IdSelecao" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="QtdTitulos" ColumnName="QtdTitulos" />
+          <ScalarProperty Name="Bandeira" ColumnName="Bandeira" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

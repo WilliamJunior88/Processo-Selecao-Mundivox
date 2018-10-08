@@ -1,0 +1,58 @@
+﻿@model CopaDoMundo.Models.Jogos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jogos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gol1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gol1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gol2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gol2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fas.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fas.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seleco.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seleco.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seleco1.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seleco1.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JogoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

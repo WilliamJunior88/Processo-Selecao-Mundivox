@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Copa do Mundo</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Copa do Mundo", "Index", "Selecoes", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Início", "Index", "Home")</li>*@
+                    <li>@Html.ActionLink("Selecoes", "Index", "Selecoes")</li>
+                    <li>@Html.ActionLink("Oitavas", "Oitavas", "Jogos")</li>
+                    <li>@Html.ActionLink("Quartas", "Quartas", "Jogos")</li>
+                    <li>@Html.ActionLink("Semi", "Semi", "Jogos")</li>
+                    <li>@Html.ActionLink("Terceiro", "Terceiro", "Jogos")</li>
+                    <li>@Html.ActionLink("Final", "Final", "Jogos")</li>
+                    @*<li>@Html.ActionLink("Fases", "Index", "Fases")</li>*@
+                    @*<li>@Html.ActionLink("Contato", "Contact", "Home")</li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row panel">
+        <div id="menu" class="col-xs-2">
+            @*M E N U*@
+        </div>
+        <div class="container body-content col-xs-4">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Copa do Mundo</p>
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

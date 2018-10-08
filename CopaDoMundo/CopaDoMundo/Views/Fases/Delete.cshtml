@@ -1,0 +1,31 @@
+﻿@model CopaDoMundo.Models.Fases
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Tem certeza que deseja deletar esta Fase da Copa do Mundo?</h3>
+
+<div>
+    <h4>Deletar Fases Da Copa do Mundo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

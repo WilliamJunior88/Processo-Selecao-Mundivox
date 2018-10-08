@@ -1,0 +1,59 @@
+﻿@model IEnumerable<CopaDoMundo.Models.Jogos>
+
+@{
+    ViewBag.Title = "Oitavas de Final";
+}
+
+<h2 style="text-align:center">Oitavas de Final</h2>
+
+@if (Model.Count() > 0)
+{
+    <p style="text-align:center">
+        <b>
+            @Html.ActionLink(" ||Sortear Quartas de Final||", "SortearQuartas")
+        </b>
+    </p>
+
+    <div class="well">
+        <table class="table">
+            @foreach (var item in Model)
+            {
+                @Html.HiddenFor(Model => item.JogoId)
+
+                <tr>
+                    <th class="col-md-3">
+                        @Html.DisplayFor(Model => item.Seleco.Nome)
+
+                    </th>
+                    <th class="col-md-2">
+                        @Html.TextBoxFor(Model => item.Gol1, new { @class = "form-control", @style = "width:60px; text-align: center; height: 26px;", @disabled = "disabled", @maxlength = "2" })
+
+                    </th>
+                    <th class="col-md-2">
+                        @Html.Label("X")
+                    </th>
+                    <th class="col-md-2">
+                        @Html.TextBoxFor(Model => item.Gol2, new { @class = "form-control", @style = "width:60px; text-align: center; height: 26px;", @disabled = "disabled", @maxlength = "2" })
+                    </th>
+                    <th class="col-md-3">
+                        @Html.DisplayFor(modelItem => item.Seleco1.Nome)
+                    </th>
+
+                    <b><th class="col-md-3">@Html.ActionLink("Editar", "Edit", new { id = item.JogoId })</th></b>
+
+                </tr>
+
+
+            }
+
+
+        </table>
+
+
+    </div>
+
+}
+else
+{
+    <h4 style="text-align:center; color:red">Jogos ainda não definidos!</h4>
+}
